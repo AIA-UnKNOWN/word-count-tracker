@@ -1,0 +1,10 @@
+.current-days {
+  background: $white;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  padding: 10px;
+  grid-gap: 10px;
+
+  @import './current-days/current-day';
+}

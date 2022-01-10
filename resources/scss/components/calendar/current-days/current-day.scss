@@ -1,0 +1,51 @@
+.day {
+  border-radius: 50%;
+  position: relative;
+
+  &:hover > .word-count-input-container {
+    display: inline-block;
+  }
+
+  .number {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    @include flex(center, center);
+  }
+
+  .word-count-input-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    box-shadow: 0 0 1px 0 $black;
+    width: 70px;
+    padding: 2px;
+    background: $white;
+
+    .word-count-input {
+      width: 100%;
+      padding: 3px;
+      font-size: 10px;
+      outline: none;
+    }
+
+    .save-button {
+      margin-top: 3px;
+      width: 100%;
+      cursor: pointer;
+      background: $violet;
+      border: none;
+      padding: 3px;
+      border-radius: 3px;
+      color: $white;
+      font-size: 12px;
+
+      &:active {
+        transform: scale(.9);
+      }
+    }
+  }
+}

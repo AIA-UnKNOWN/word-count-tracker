@@ -1,0 +1,7 @@
+.app {
+  @include flex(center, center);
+
+  @import
+    'components/calendar',
+    'components/tracker';
+}
