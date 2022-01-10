@@ -164,7 +164,7 @@ var CurrentDays = function CurrentDays(_ref) {
     var previousDays = getPreviousDays(date);
     var currentDays = getCurrentDays(date);
     var nextDays = getNextDays(date);
-    setDays([].concat(_toConsumableArray(previousDays), _toConsumableArray(currentDays), _toConsumableArray(nextDayss)));
+    setDays([].concat(_toConsumableArray(previousDays), _toConsumableArray(currentDays), _toConsumableArray(nextDays)));
   }, [date]);
 
   var getPreviousDays = function getPreviousDays(date) {

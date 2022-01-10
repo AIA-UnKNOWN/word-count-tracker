@@ -11,7 +11,7 @@ const CurrentDays = ({ date }) => {
     const currentDays = getCurrentDays(date);
     const nextDays = getNextDays(date);
 
-    setDays([...previousDays, ...currentDays, ...nextDayss]);
+    setDays([...previousDays, ...currentDays, ...nextDays]);
   }, [date]);
 
   const getPreviousDays = date => {
