@@ -10,14 +10,19 @@ const App = () => {
     new Date().getMonth(),
     new Date().getDate()
   ));
+  const [days, setDays] = useState([]);
 
   return (
     <div className="app">
       <Calendar
         date={currentDate}
         setCurrentDate={setCurrentDate}
+        days={days}
+        setDays={setDays}
       />
-      <Tracker />
+      <Tracker
+        days={days}
+      />
     </div>
   );
 }

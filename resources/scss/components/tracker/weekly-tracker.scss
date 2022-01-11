@@ -1,0 +1,49 @@
+.weekly-tracker {
+  padding: 5px 10px;
+
+  .labels {
+    font-size: 11px;
+    color: $black-o-50;
+    font-weight: 600;
+    @include flex(space-between, center);
+  }
+
+  .counts {
+    color: $black-o-50;
+    font-weight: 600;
+    @include flex(center, flex-end);
+    margin: 4px 0 10px;
+
+    .current-count {
+      font-size: 20px;
+      color: $black;
+    }
+
+    .slash {
+      margin: 0 8px;
+    }
+
+    .slash, .total-count {
+      margin-bottom: 2px;
+    }
+
+    .total-count {
+      font-size: 13px;
+    }
+  }
+
+  .progress-bar {
+    width: 170px;
+    height: 13px;
+    border-radius: 20px;
+    box-shadow: inset 0 0 4px $black;
+
+    .progress {
+      border-radius: 20px;
+      height: 100%;
+      width: 50%;
+      transition: width 1s;
+      background: linear-gradient(to bottom, $violet-o-25, $violet);
+    }
+  }
+}

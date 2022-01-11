@@ -49,3 +49,12 @@
     }
   }
 }
+
+.today {
+  background: $violet;
+
+  .number {
+    color: $white;
+    font-weight: bold;
+  }
+}

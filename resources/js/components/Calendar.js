@@ -2,8 +2,7 @@ import CurrentMonth from './calendar/CurrentMonth';
 import CurrentDays from './calendar/CurrentDays';
 
 
-const Calendar = ({ date, setCurrentDate }) => {
-
+const Calendar = ({ date, days, setCurrentDate, setDays }) => {
   return (
     <div className="calendar">
       <CurrentMonth
@@ -12,6 +11,8 @@ const Calendar = ({ date, setCurrentDate }) => {
       />
       <CurrentDays
         date={date}
+        days={days}
+        onRenderDays={setDays}
       />
     </div>
   );

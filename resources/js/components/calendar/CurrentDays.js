@@ -1,17 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import Day from './current-days/Day';
 
 
-const CurrentDays = ({ date }) => {
-  const [days, setDays] = useState([]);
+const CurrentDays = ({ date, days, onRenderDays }) => {
 
   useEffect(() => {
     const previousDays = getPreviousDays(date);
     const currentDays = getCurrentDays(date);
     const nextDays = getNextDays(date);
-
-    setDays([...previousDays, ...currentDays, ...nextDays]);
+    
+    onRenderDays([...previousDays, ...currentDays, ...nextDays]);
   }, [date]);
 
   const getPreviousDays = date => {
@@ -33,7 +32,7 @@ const CurrentDays = ({ date }) => {
       day++
     ) {
       previousMonthDays.push({
-        month: date.getMonth() - 1,
+        month: (date.getMonth() - 1 < 0) ? 11 : (date.getMonth() - 1),
         day,
         year: new Date(
           date.getFullYear(),
@@ -56,8 +55,8 @@ const CurrentDays = ({ date }) => {
     
     for (let day = 1; day <= lastDay; day++) {
       currentMonthDays.push({
-        month: date.getMonth().leftPad(1),
-        day: day.leftPad(1),
+        month: date.getMonth(),
+        day,
         year: date.getFullYear()
       });
     }
@@ -75,7 +74,7 @@ const CurrentDays = ({ date }) => {
 
     for (let day = 1; day < (7 - lastDayIndex); day++) {
       nextMonthDays.push({
-        month: date.getMonth() + 1,
+        month: (date.getMonth() + 1) > 11 ? 0 : (date.getMonth() + 1),
         day,
         year: new Date(
           date.getFullYear(),
@@ -87,7 +86,7 @@ const CurrentDays = ({ date }) => {
 
     return nextMonthDays;
   }
-
+  
   return (
     <div className="current-days">
       {days.map(({ month, day, year }) => (
