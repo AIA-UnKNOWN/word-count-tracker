@@ -20,6 +20,10 @@ const WeeklyTracker = ({ id, weekdays }) => {
         attributes: true
       });
     });
+
+    return () => {
+      setTotalWordCount(0);
+    }
   }, [weekdays]);
 
   const getTotalWordCount = () => {

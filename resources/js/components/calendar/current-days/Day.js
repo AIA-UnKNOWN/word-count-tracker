@@ -86,7 +86,10 @@ const Day = ({ month, number, year }) => {
         />
         <button
           className="save-button"
-          onClick={() => saveWordCount(wordCount)}
+          onClick={e => {
+            e.stopPropagation();
+            saveWordCount(wordCount);
+          }}
         >{isSaved ? 'Saved!' : 'Save'}</button>
       </div>
     </div>
