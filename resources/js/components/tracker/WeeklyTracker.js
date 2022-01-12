@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
+import ProgressBar from './weekly-tracker/ProgressBar';
+
 
 const WeeklyTracker = ({ id, weekdays }) => {
   const generatedIDs = useRef(weekdays.map(({ month, day, year }) => `${month}${day}${year}`));
@@ -46,9 +48,11 @@ const WeeklyTracker = ({ id, weekdays }) => {
         <div className="slash">/</div>
         <div className="total-count">12000</div>
       </div>
-      <div className="progress-bar">
-        <div className="progress"></div>
-      </div>
+      <ProgressBar
+        id={`week-${id}-progress-bar`}
+        wordCount={totalWordCount}
+        weeklyTotal={14000 /* Testing */}
+      />
     </div>
   );
 }

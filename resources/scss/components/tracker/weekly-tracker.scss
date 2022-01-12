@@ -32,18 +32,6 @@
     }
   }
 
-  .progress-bar {
-    width: 170px;
-    height: 13px;
-    border-radius: 20px;
-    box-shadow: inset 0 0 4px $black;
-
-    .progress {
-      border-radius: 20px;
-      height: 100%;
-      width: 50%;
-      transition: width 1s;
-      background: linear-gradient(to bottom, $violet-o-25, $violet);
-    }
-  }
+  @import 'weekly-tracker/progress-bar';
+  
 }
