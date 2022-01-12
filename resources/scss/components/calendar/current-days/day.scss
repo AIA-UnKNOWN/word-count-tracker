@@ -45,6 +45,13 @@
       padding: 3px;
       font-size: 10px;
       outline: none;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
+        margin: 0;
+      }
     }
 
     .save-button {
