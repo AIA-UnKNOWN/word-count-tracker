@@ -4,19 +4,6 @@ import { useState } from 'react';
 const QuotaForm = ({ quota, setMonthlyQuota }) => {
   const [isSaved, setIsSaved] = useState(false);
 
-  const getQuota = () => {
-    fetch('/api/get-word-count', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ id: 'user-quota-0' })
-    })
-      .then(response => response.json())
-      .then(data => setMonthlyQuota(data.count.toString()))
-      .catch(error => console.log(error));
-  }
-
   const saveQuota = quota => {
     fetch('/api/save-word-count', {
       method: 'POST',
@@ -38,10 +25,7 @@ const QuotaForm = ({ quota, setMonthlyQuota }) => {
   return (
     <div className="quota-form">
       <input type="checkbox" id="quota-form-toggler" />
-      <label
-      onClick={getQuota}
-        htmlFor="quota-form-toggler"
-      >
+      <label htmlFor="quota-form-toggler">
         <i className="fas fa-edit"></i>
       </label>
       
