@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react';
 import WeeklyTracker from './tracker/WeeklyTracker';
 
 
-const Tracker = ({ days }) => {
+const Tracker = ({ days, monthlyQuota }) => {
   const [weeks, setWeeks] = useState([]);
   
   useEffect(() => {
     divideDaysIntoWeeks();
-  }, [days]);
+  }, [days, monthlyQuota]);
 
   const divideDaysIntoWeeks = () => {
     const numberOfWeeks = days.length / 7;
@@ -37,6 +37,7 @@ const Tracker = ({ days }) => {
             key={index}
             id={index + 1}
             weekdays={week}
+            weekQuota={Math.floor(monthlyQuota / weeks.length)}
           />
         ))}
       </div>

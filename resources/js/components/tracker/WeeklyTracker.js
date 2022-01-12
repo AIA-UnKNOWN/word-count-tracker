@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import ProgressBar from './weekly-tracker/ProgressBar';
 
 
-const WeeklyTracker = ({ id, weekdays }) => {
+const WeeklyTracker = ({ id, weekdays, weekQuota }) => {
   const generatedIDs = useRef(weekdays.map(({ month, day, year }) => `${month}${day}${year}`));
   const [totalWordCount, setTotalWordCount] = useState(0);
   
@@ -46,12 +46,12 @@ const WeeklyTracker = ({ id, weekdays }) => {
       <div className="counts">
         <div className="current-count">{totalWordCount}</div>
         <div className="slash">/</div>
-        <div className="total-count">12000</div>
+        <div className="total-count">{weekQuota}</div>
       </div>
       <ProgressBar
         id={`week-${id}-progress-bar`}
         wordCount={totalWordCount}
-        weeklyTotal={14000 /* Testing */}
+        weeklyTotal={weekQuota}
       />
     </div>
   );

@@ -1,7 +1,92 @@
-.app {
+.app-container {
+  height: 100vh;
+  width: 100vw;
   @include flex(center, center);
+  position: relative;
 
-  @import
-    'components/calendar',
-    'components/tracker';
+  .app {
+    @include flex(center, center);
+  
+    @import
+      'components/calendar',
+      'components/tracker';
+  }
+
+  .quota-form {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: $violet;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    #quota-form-toggler {
+      display: none;
+    }
+
+    #quota-form-toggler:checked ~ .form {
+      display: inline-block;
+    }
+
+    label {
+      font-size: 20px;
+      color: $white;
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      @include flex(center, center);
+      cursor: pointer;
+    }
+
+    .form {
+      display: none;
+      position: absolute;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 5px;
+      margin-right: 10px;
+      background: $white;
+      border-radius: 5px;
+
+      label {
+        font-size: 14px;
+        color: $violet;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input {
+        padding: 5px;
+        outline: none;
+        border: none;
+        box-shadow: inset 0 0 5px $black;
+        border-radius: 5px;
+        
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-outer-button {
+          -webkit-appearance: none;
+          -moz-appearance: textfield;
+          margin: 0;
+        }
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        margin-top: 5px;
+        font-size: 13px;
+        padding: 5px;
+        border-radius: 5px;
+        background: $violet;
+        color: $white;
+        border: none;
+
+        &:active {
+          transform: scale(.95);
+        }
+      }
+    }
+  }
 }
