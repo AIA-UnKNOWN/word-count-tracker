@@ -1,14 +1,35 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 
 const WeeklyTracker = ({ id, weekdays }) => {
-  const [IDs, setIDs] = useState([]);
+  const generatedIDs = useRef(weekdays.map(({ month, day, year }) => `${month}${day}${year}`));
   const [totalWordCount, setTotalWordCount] = useState(0);
   
   useEffect(() => {
-    const generatedIDs = weekdays.map(({ month, day, year }) => `${month}${day}${year}`);
-    setIDs(generatedIDs);
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
+        if (mutation.attributeName === 'value') getTotalWordCount();
+      });
+    });
+
+    generatedIDs.current.forEach(id => {
+      const inputElement = document.getElementById(id);
+      if (!inputElement) return;
+      observer.observe(inputElement, {
+        childList: false,
+        attributes: true
+      });
+    });
   }, [weekdays]);
+
+  const getTotalWordCount = () => {
+    let total = 0;
+    generatedIDs.current.forEach(id => {
+      const inputElement = document.getElementById(id);
+      total += parseInt(inputElement.value);
+    });
+    setTotalWordCount(total);
+  }
 
   return (
     <div className="weekly-tracker">
