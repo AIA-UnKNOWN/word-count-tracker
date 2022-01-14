@@ -20,5 +20,7 @@ body {
   background: $black;
   @include flex(center, center);
 
-  @import 'app';
+  @import
+    'auth/styles',
+    'app';
 }
