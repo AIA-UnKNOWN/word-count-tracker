@@ -15,9 +15,11 @@ class CreateWordCountsTable extends Migration
     {
         Schema::create('word_counts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('date_id');
             $table->integer('count')->default(0);
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

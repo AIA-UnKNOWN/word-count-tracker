@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', IndexController::class)
+    ->name('app');
+
+Route::get('/login', [AuthController::class, 'loginPage'])
+    ->name('login-page');
+Route::post('/login', [AuthController::class, 'login'])
+    ->name('login');
+Route::get('/register', [AuthController::class, 'registerPage'])
+    ->name('register-page');
+Route::post('/register', [AuthController::class, 'register'])
+    ->name('register');
+Route::get('/logout', [AuthController::class, 'logOut'])
+    ->name('logout');
