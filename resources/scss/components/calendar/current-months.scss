@@ -3,6 +3,12 @@
   height: 80px;
   padding: 0 30px;
   @include flex(space-between, center);
+  @include small-phone {
+    padding: 0 20px;
+  }
+  @include phone {
+    padding: 0 20px;
+  }
 
   button {
     font-size: 30px;

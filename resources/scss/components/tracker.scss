@@ -1,6 +1,16 @@
 .tracker {
   margin-left: 30px;
   background: $white;
+  @include small-phone {
+    margin-left: 0;
+    margin-top: 20px;
+    padding: 5px 0;
+  }
+  @include phone {
+    margin-left: 0;
+    margin-top: 20px;
+    padding: 5px 0;
+  }
 
   @import 'tracker/weekly-tracker';
 }

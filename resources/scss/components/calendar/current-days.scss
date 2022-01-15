@@ -5,6 +5,14 @@
   grid-template-rows: repeat(5, 1fr);
   padding: 10px;
   grid-gap: 10px;
+  @include small-phone {
+    padding: 5px;
+    grid-gap: 5px;
+  }
+  @include phone {
+    padding: 5px;
+    grid-gap: 5px;
+  }
 
   @import './current-days/day';
 }
