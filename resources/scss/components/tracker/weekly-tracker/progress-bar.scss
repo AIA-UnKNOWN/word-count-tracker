@@ -3,6 +3,9 @@
   height: 13px;
   border-radius: 20px;
   box-shadow: inset 0 0 4px $black;
+  @include phone {
+    width: 200px;
+  }
 
   .progress {
     border-radius: 20px;

@@ -2,7 +2,8 @@
 
 @import
   'global-styles/colors',
-  'global-styles/functions';
+  'global-styles/functions',
+  'global-styles/breakpoints';
 
 * {
   margin: 0;
@@ -19,6 +20,16 @@ html, body {
 body {
   background: $black;
   @include flex(center, center);
+  @include small-phone {
+    display: block;
+    padding: 150px 0;
+    height: max-content;
+  }
+  @include phone {
+    display: block;
+    padding: 100px 0;
+    height: max-content;
+  }
 
   @import
     'auth/styles',
