@@ -18,7 +18,10 @@ const Day = ({ month, number, year }) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ id })
+      body: JSON.stringify({
+        userId: parseInt(document.getElementById('root').getAttribute('data-id')),
+        dateId: id
+      })
     })
       .then(response => response.json())
       .then(data => {
@@ -35,6 +38,7 @@ const Day = ({ month, number, year }) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        userId: parseInt(document.getElementById('root').getAttribute('data-id')),
         dateId: id.current,
         count: parseInt(wordCount)
       })
