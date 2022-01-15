@@ -51,11 +51,11 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only('username', 'password');
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+        if (! Auth::attempt($credentials)) {
+            return redirect(route('login-page'));
         }
-
-        return redirect(route('login-page'));
+        
+        return redirect()->intended('/');
     }
 
     function logOut() {

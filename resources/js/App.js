@@ -19,15 +19,17 @@ const App = () => {
   }, []);
 
   const getQuota = () => {
-    fetch('/api/get-word-count', {
+    fetch('/api/get-monthly-quota', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ id: 'user-quota-0' })
+      body: JSON.stringify({
+        id: parseInt(document.getElementById('root').getAttribute('data-id'))
+      })
     })
       .then(response => response.json())
-      .then(data => setMonthlyQuota(data.count.toString()))
+      .then(data => setMonthlyQuota(data.monthly_quota))
       .catch(error => console.log(error));
   }
 

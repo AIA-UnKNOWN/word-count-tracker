@@ -3,22 +3,20 @@ import { useState } from 'react';
 
 const QuotaForm = ({ quota, setMonthlyQuota }) => {
   const [isSaved, setIsSaved] = useState(false);
-
+  
   const saveQuota = quota => {
-    fetch('/api/save-word-count', {
+    fetch('/api/set-monthly-quota', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        dateId: 'user-quota-0',
-        count: parseInt(quota)
+        id: parseInt(document.getElementById('root').getAttribute('data-id')),
+        monthlyQuota: parseInt(quota)
       })
     })
       .then(response => response.json())
-      .then(data => {
-        if (data.message === 'success') setIsSaved(true);
-      })
+      .then(data => setIsSaved(data.message === 'success' ? true : false))
       .catch(error => console.log(error));
   }
 

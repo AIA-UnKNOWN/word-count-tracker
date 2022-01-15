@@ -10,7 +10,8 @@ class GetWordCountController extends Controller
     public function __invoke(Request $request)
     {
         $wordCount = WordCounts::select('*')
-            ->where('date_id', $request->get('id'))
+            ->where('user_id', $request->get('userId'))
+            ->where('date_id', $request->get('dateId'))
             ->first();
             
         return response()->json($wordCount);
