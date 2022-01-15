@@ -8,7 +8,11 @@ const WeeklyTracker = ({ id, weekdays, weekQuota }) => {
   const [totalWordCount, setTotalWordCount] = useState(0);
   
   useEffect(() => {
-    getTotalWordCount();
+    try {
+      getTotalWordCount();
+    } catch(error) {
+      return;
+    }
 
     const observer = new MutationObserver(mutations => {
       mutations.forEach(mutation => {
