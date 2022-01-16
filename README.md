@@ -2,6 +2,8 @@
 
 This app is a Word Count Tracker that tracks the word count you've written in a specific day and enables you to see the progress of the days you've wrote something. This app is made for my partner as my partner is an author/writer so my partner needs something that can track the word counts that my partner wrote, so that's the reason I made this app.
 
+![Word Count Tracker](word-count-tracker.png)
+
 # Setup
 
 To set this up, we need to install the requirements first.
