@@ -21,17 +21,13 @@ const CurrentMonth = ({ date, onSwitchMonth }) => {
 
   return (
     <div className="current-month">
-      <button
-        onClick={goToPreviousMonth}
-      >
+      {/* <button onClick={goToPreviousMonth}>
         <i className="fas fa-chevron-left"></i>
-      </button>
+      </button> */}
       <label className="month">{`${MONTHS[date.getMonth()]}, ${date.getFullYear()}`}</label>
-      <button
-        onClick={goToNextMonth}
-      >
+      {/* <button onClick={goToNextMonth}>
         <i className="fas fa-chevron-right"></i>
-      </button>
+      </button> */}
     </div>
   );
 }

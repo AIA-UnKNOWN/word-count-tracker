@@ -2,7 +2,7 @@
   background: $violet;
   height: 80px;
   padding: 0 30px;
-  @include flex(space-between, center);
+  @include flex(center, center);
   @include small-phone {
     padding: 0 20px;
   }
