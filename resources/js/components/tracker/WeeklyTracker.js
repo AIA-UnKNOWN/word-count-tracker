@@ -11,9 +11,17 @@ const WeeklyTracker = ({ id, weekdays, weekQuota }) => {
     try {
       getTotalWordCount();
     } catch(error) {
-      return;
+      console.log('Rendering...');
     }
 
+    watchDaysElementChanges();
+
+    return () => {
+      setTotalWordCount(0);
+    }
+  }, [weekdays, weekQuota]);
+
+  const watchDaysElementChanges = () => {
     const observer = new MutationObserver(mutations => {
       mutations.forEach(mutation => {
         if (mutation.attributeName === 'value') getTotalWordCount();
@@ -28,11 +36,7 @@ const WeeklyTracker = ({ id, weekdays, weekQuota }) => {
         attributes: true
       });
     });
-
-    return () => {
-      setTotalWordCount(0);
-    }
-  }, [weekdays]);
+  }
 
   const getTotalWordCount = () => {
     let total = 0;

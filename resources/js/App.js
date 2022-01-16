@@ -16,7 +16,7 @@ const App = () => {
 
   useEffect(() => {
     getQuota();
-  }, []);
+  }, [days]);
 
   const getQuota = () => {
     fetch('/api/get-monthly-quota', {
