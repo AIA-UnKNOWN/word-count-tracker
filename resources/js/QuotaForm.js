@@ -42,6 +42,12 @@ const QuotaForm = ({ quota, setMonthlyQuota }) => {
           onClick={() => saveQuota(quota)}
         >{isSaved ? 'Saved!' : 'Save'}</button>
       </div>
+
+      <div className="logout-container">
+        <a className="logout-button" href="/logout">
+          <i class="fas fa-sign-out-alt"></i>
+        </a>
+      </div>
     </div>
   );
 }
